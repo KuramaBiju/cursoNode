@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <h2>Registro de peliculas</h2>
+        <form action="/new" method="post">
+            <p>
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre">
+            </p>
+            <p>
+                <label for="nombre">Calificación</label>
+                <input type="range" min="0" max="10" name="rating" id="rating">
+            </p>
+            <button type="submit" id="bSubmit" >Registrar nueva pelicula</button>
+        </form>
+    </div>
+    <div id="peliculas-container"></div>
+
+<script>
+
+loadPeliculas();
+   
+     function loadPeliculas(){
+      const getData =  fetch('http://localhost:3001/getPeliculas',{method: 'GET'},
+      { mode: 'no-cors'} );
+      /*LO DEJO ASI XQ EL CORS ME TIENE LAS PELOTAS LLENAS*/
+      console.log(getData);
+     }
+   
+    
+</script>
+</body>
+
+</html>
